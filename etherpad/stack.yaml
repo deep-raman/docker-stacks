@@ -2,8 +2,8 @@ version: '3'
 services:
   etherpad:
     image: etherpad/etherpad
-    ports:
-      - "9001"
+    #ports:
+    #  - "9001"
     networks:
       - proxy
     deploy:
