@@ -1,0 +1,17 @@
+version: '3'
+services:
+  etherpad:
+    image: etherpad/etherpad
+    ports:
+      - "9001"
+    networks:
+      - proxy
+    deploy:
+      replicas: 10
+      labels:
+        traefik.port: 9001
+        traefik.frontend.rule: "Host:etherpad.172.16.21.13.nip.io"
+        trafik.docker.network: "proxy"
+networks:
+  proxy:
+    external: true
